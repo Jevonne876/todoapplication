@@ -1,0 +1,47 @@
+<div class="flex items-center justify-center min-h-screen">
+  <div class="flex flex-col px-20 py-16 bg-gray-50 rounded-2xl">
+    <h2 class="text-3xl font-semibold text-center font-vollkron">Register</h2>
+    <h3 class="mt-2 text-center text-md font-poppins text-slate-500">
+      Already have an account?
+      <a
+        [routerLink]="['/login']"
+        class="font-bold duration-300 hover:underline"
+        >login here</a
+      >
+    </h3>
+
+    <input
+      type="text"
+      class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
+      placeholder="Enter your first name"
+    />
+    <input
+      type="text"
+      class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
+      placeholder="Enter your last name"
+    />
+    <input
+      type="text"
+      class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
+      placeholder="Enter your email address"
+    />
+
+    <input
+      type="text"
+      class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
+      placeholder="Enter your username"
+    />
+
+    <input
+      type="password"
+      class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
+      placeholder="Enter your password"
+    />
+
+    <button
+      class="px-2 py-3 mt-4 font-bold text-center text-white duration-300 bg-gray-700 rounded-xl hover:bg-gray-500 font-"
+    >
+      Create Account
+    </button>
+  </div>
+</div>

@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        vollkron: ["Vollkron", "serif"],
+      },
+    },
   },
   plugins: [require("@tailwindcss/forms")],
 };
