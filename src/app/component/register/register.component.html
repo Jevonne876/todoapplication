@@ -10,38 +10,101 @@
       >
     </h3>
 
-    <input
-      type="text"
-      class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
-      placeholder="Enter your first name"
-    />
-    <input
-      type="text"
-      class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
-      placeholder="Enter your last name"
-    />
-    <input
-      type="text"
-      class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
-      placeholder="Enter your email address"
-    />
-
-    <input
-      type="text"
-      class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
-      placeholder="Enter your username"
-    />
-
-    <input
-      type="password"
-      class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
-      placeholder="Enter your password"
-    />
-
-    <button
-      class="px-2 py-3 mt-4 font-bold text-center text-white duration-300 bg-gray-700 rounded-xl hover:bg-gray-500 font-"
+    <form
+      class="flex flex-col"
+      [formGroup]="newUserForm"
+      (ngSubmit)="onSubmit()"
     >
-      Create Account
-    </button>
+      <input
+        type="text"
+        class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
+        id="firstName"
+        placeholder="Enter your first name"
+        formControlName="firstName"
+      />
+      <div
+        class="mt-2 ml-2 text-red-600 font-poppins"
+        *ngIf="
+          !newUserForm.get('firstName')?.valid &&
+          newUserForm.get('firstName')?.touched
+        "
+      >
+        first name is required
+      </div>
+      <input
+        type="text"
+        class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
+        id="lastName"
+        placeholder="Enter your last name"
+        formControlName="lastName"
+      />
+      <div
+        class="mt-2 ml-2 text-red-600 font-poppins"
+        *ngIf="
+          !newUserForm.get('lastName')?.valid &&
+          newUserForm.get('lastName')?.touched
+        "
+      >
+        last name is required
+      </div>
+      <input
+        type="text"
+        class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
+        id="email"
+        placeholder="Enter your email address"
+        formControlName="email"
+      />
+      <div
+        class="mt-2 ml-2 text-red-600 font-poppins"
+        *ngIf="
+          !newUserForm.get('email')?.valid && newUserForm.get('email')?.touched
+        "
+      >
+        email is required
+      </div>
+
+      <input
+        type="text"
+        class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
+        id="username"
+        placeholder="Enter your username"
+        formControlName="username"
+      />
+      <div
+        class="mt-2 ml-2 text-red-600 font-poppins"
+        *ngIf="
+          !newUserForm.get('username')?.valid &&
+          newUserForm.get('username')?.touched
+        "
+      >
+        username is required
+      </div>
+
+      <input
+        type="password"
+        class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
+        id="password"
+        placeholder="Enter your password"
+        formControlName="password"
+      />
+      <div
+        class="mt-2 ml-2 text-red-600 font-poppins"
+        *ngIf="
+          !newUserForm.get('password')?.valid &&
+          newUserForm.get('password')?.touched
+        "
+      >
+        password is required
+      </div>
+
+      <button
+        [disabled]="newUserForm.invalid"
+        class="px-2 py-3 mt-4 font-bold text-center text-white duration-300 bg-gray-700 rounded-xl hover:bg-gray-500 font-"
+        type="submit"
+        value="submit"
+      >
+        Create Account
+      </button>
+    </form>
   </div>
 </div>
