@@ -10,22 +10,51 @@
       >
     </h3>
 
-    <input
-      type="text"
-      class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
-      placeholder="Enter your username"
-    />
-
-    <input
-      type="password"
-      class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
-      placeholder="Enter your password"
-    />
-
-    <button
-      class="px-2 py-3 mt-4 font-bold text-center text-white duration-300 bg-gray-700 rounded-xl hover:bg-gray-500 font-"
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="userLogin()"
+      class="flex flex-col"
     >
-      Login
-    </button>
+      <input
+        type="text"
+        class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
+        placeholder="Enter your username"
+        formControlName="username"
+      />
+
+      <div
+        class="mt-2 ml-2 text-red-600 font-poppins"
+        *ngIf="
+          !loginForm.get('username')?.valid &&
+          loginForm.get('username')?.touched
+        "
+      >
+        username is required
+      </div>
+
+      <input
+        type="password"
+        class="mt-4 rounded-lg placeholder:text-center md:placeholder:text-left focus:border-gray-500 focus:ring-0 font-poppins placeholder:font-poppins"
+        placeholder="Enter your password"
+        formControlName="password"
+      />
+
+      <div
+        class="mt-2 ml-2 text-red-600 font-poppins"
+        *ngIf="
+          !loginForm.get('password')?.valid &&
+          loginForm.get('password')?.touched
+        "
+      >
+        password is required
+      </div>
+
+      <button
+        [disabled]="loginForm.invalid"
+        class="px-2 py-3 mt-4 font-bold text-center text-white duration-300 bg-gray-700 rounded-xl hover:bg-gray-500 font-"
+      >
+        Login
+      </button>
+    </form>
   </div>
 </div>
